@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: touch /home/liza/workspace/webhooks_testing/new_file.txt
+        run: touch /home/liza/workspace/webhook_testing/new_file.txt
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
