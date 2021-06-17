@@ -23,15 +23,21 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: fifsky/ssh-action@master
+        command: |
+          whoami
+          ls -l
+        host: ${{ secrets.SSH_HOST }}
+        user: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
 
-      # Runs a single command using the runners shell
-      - name: connect to ssh server
-        run: ssh -i ${{ secrets.SSH_KEY }} ${{ secrets.SSH_HOST }}
+#       # Runs a single command using the runners shell
+#       - name: connect to ssh server
+#         run: ssh -i ${{ secrets.SSH_KEY }} ${{ secrets.SSH_HOST }}
 
-      # Runs a set of commands using the runners shell
-      - name: run whoami command
-        run: whoami
+#       # Runs a set of commands using the runners shell
+#       - name: run whoami command
+#         run: whoami
         
       - name: run ls -l command
         run: ls -l
