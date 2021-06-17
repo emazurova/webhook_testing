@@ -7,11 +7,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: ls -a via OPEN SSH Private Key
-        uses: ./
         with:
           command: ls -a
           host: ${{ secrets.SSH_HOST }}
